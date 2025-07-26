@@ -137,7 +137,7 @@ export default function Index() {
       {/* Header */}
       <header className="w-full px-6 py-12">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-title font-bold text-brand-purple">
+          <h1 className="text-4xl md:text-5xl font-high-empathy font-bold text-brand-purple">
             HueMatch
           </h1>
         </div>
@@ -149,7 +149,7 @@ export default function Index() {
           <div className="text-center space-y-12 pt-24 animate-in fade-in duration-700">
             <div className="space-y-8">
               <div className="space-y-4">
-                <h3 className="text-5xl md:text-6xl font-bold font-heading leading-tight text-brand-purple">
+                <h3 className="text-5xl md:text-6xl font-bold font-rosaline leading-tight text-brand-purple">
                   Find the <em className="italic">right</em> foundation
                   <br />
                   shade for your skin
@@ -176,7 +176,7 @@ export default function Index() {
                   <div className="w-16 h-16 bg-brand-light-pink rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Upload className="w-8 h-8 text-brand-purple" />
                   </div>
-                  <h3 className="text-xl font-semibold font-heading mb-3 text-gray-800">
+                  <h3 className="text-xl font-semibold font-sans mb-3 text-gray-800">
                     Upload Your Photo
                   </h3>
                   <p className="text-gray-600">
@@ -193,7 +193,7 @@ export default function Index() {
                       <div className="absolute inset-1 bg-brand-purple rounded-full"></div>
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold font-heading mb-3 text-gray-800">
+                  <h3 className="text-xl font-semibold font-sans mb-3 text-gray-800">
                     Select Your Skin
                   </h3>
                   <p className="text-gray-600">
@@ -207,7 +207,7 @@ export default function Index() {
                   <div className="w-16 h-16 bg-brand-light-pink rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Sparkles className="w-8 h-8 text-brand-purple" />
                   </div>
-                  <h3 className="text-xl font-semibold font-heading mb-3 text-gray-800">
+                  <h3 className="text-xl font-semibold font-sans mb-3 text-gray-800">
                     Get Your Match
                   </h3>
                   <p className="text-gray-600">
@@ -223,7 +223,7 @@ export default function Index() {
         {step === "upload" && (
           <div className="space-y-8 pt-8 animate-in slide-in-from-right duration-500">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold font-heading text-gray-800">
+              <h2 className="text-4xl font-bold font-sans text-gray-800">
                 Upload Your Photo
               </h2>
               <p className="text-lg text-gray-600">
@@ -294,7 +294,7 @@ export default function Index() {
         {step === "picker" && uploadedImage && (
           <div className="space-y-8 pt-8 animate-in slide-in-from-left duration-500">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold font-heading text-gray-800">
+              <h2 className="text-4xl font-bold font-sans text-gray-800">
                 Select Your Skin Tone
               </h2>
               <p className="text-lg text-gray-600">
@@ -377,7 +377,7 @@ export default function Index() {
         {step === "results" && foundationMatch && (
           <div className="space-y-8 pt-8 animate-in zoom-in duration-700">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold font-heading text-gray-800">
+              <h2 className="text-4xl font-bold font-sans text-gray-800">
                 Your Perfect Match
               </h2>
               <p className="text-lg text-gray-600">
@@ -568,10 +568,8 @@ export default function Index() {
               </a>
             </div>
             <div className="flex items-center justify-center gap-3">
-              <div className="w-8 h-8 bg-brand-purple rounded-lg flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-white" />
-              </div>
-              <span className="text-sm font-title font-medium text-brand-purple">
+
+              <span className="text-sm font-high-empathy font-medium text-brand-purple">
                 HueMatch
               </span>
             </div>

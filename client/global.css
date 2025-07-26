@@ -1,16 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Prociono&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@400;500;600;700&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
-  font-family: 'HueMatchTitle';
-  src: url('https://cdn.builder.io/o/assets%2F0d68dce6c99045fc980ec4bed2ae11cf%2Fd64e370057e743a88312eadb198efc33?alt=media&token=a0c39f3a-db87-452d-b71d-1a39a06e8749&apiKey=0d68dce6c99045fc980ec4bed2ae11cf') format('woff2'),
-       url('https://cdn.builder.io/o/assets%2F0d68dce6c99045fc980ec4bed2ae11cf%2F3795f530898d4a8ca8e62252c7e4fd36?alt=media&token=c548fedd-c98c-49ea-a485-72ff896ae777&apiKey=0d68dce6c99045fc980ec4bed2ae11cf') format('woff');
+  font-family: 'High Empathy';
+  src: url('/High Empathy.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.font-high-empathy {
+  font-family: 'High Empathy', sans-serif;
+}
+
+@font-face {
+  font-family: 'Rosaline';
+  src: url('/Rosaline.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-rosaline {
+  font-family: 'Rosaline', cursive, sans-serif;
+}
 
 @layer base {
   /**

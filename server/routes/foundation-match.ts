@@ -111,8 +111,10 @@ export const handleFoundationMatch: RequestHandler = (req, res) => {
 
     // Calculate distances to all foundation shades
     const matches = MAC_FOUNDATIONS.map((foundation) => ({
-      ...foundation,
-      distance: calculateColorDistance(validRgb, foundation.rgb),
+      name: foundation.name,
+      rgb: foundation.rgb as [number, number, number],
+      undertone: foundation.undertone,
+      distance: calculateColorDistance(validRgb, foundation.rgb as [number, number, number]),
     })).sort((a, b) => a.distance - b.distance);
 
     const bestMatch = matches[0];
@@ -153,13 +155,13 @@ export const handleFoundationMatch: RequestHandler = (req, res) => {
     const response: FoundationMatchResponse = {
       bestMatch: {
         name: bestMatch.name,
-        rgb: bestMatch.rgb,
+        rgb: bestMatch.rgb as [number, number, number],
         undertone: bestMatch.undertone,
         confidence,
       },
       alternativeMatches: alternativeMatches.map((match) => ({
         name: match.name,
-        rgb: match.rgb,
+        rgb: match.rgb as [number, number, number],
         undertone: match.undertone,
         distance: Math.round(match.distance),
       })),
