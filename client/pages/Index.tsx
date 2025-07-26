@@ -139,7 +139,7 @@ export default function Index() {
       <main className="max-w-4xl mx-auto px-6 pb-16">
         {/* Welcome Section */}
         {step === 'welcome' && (
-          <div className="text-center space-y-8 pt-16">
+          <div className="text-center space-y-8 pt-16 animate-in fade-in duration-700">
             <div className="space-y-6">
               <h2 className="text-5xl md:text-6xl font-bold leading-tight">
                 Find Your Perfect{' '}
