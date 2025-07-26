@@ -420,12 +420,35 @@ export default function Index() {
                       Recommendations
                     </h4>
                     <ul className="space-y-2">
-                      {foundationMatch.recommendations.map((rec, index) => (
-                        <li key={index} className="text-sm text-gray-700 flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-brand-pink rounded-full mt-2 flex-shrink-0" />
-                          {rec}
-                        </li>
-                      ))}
+                      {foundationMatch.recommendations.map((rec, index) => {
+                        // Check if the recommendation contains a URL
+                        const urlRegex = /(https?:\/\/[^\s]+)/g;
+                        const parts = rec.split(urlRegex);
+
+                        return (
+                          <li key={index} className="text-sm text-gray-700 flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 bg-brand-pink rounded-full mt-2 flex-shrink-0" />
+                            <span>
+                              {parts.map((part, partIndex) => {
+                                if (urlRegex.test(part)) {
+                                  return (
+                                    <a
+                                      key={partIndex}
+                                      href={part}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="text-brand-pink hover:text-brand-purple underline font-medium"
+                                    >
+                                      {part}
+                                    </a>
+                                  );
+                                }
+                                return part;
+                              })}
+                            </span>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
 
