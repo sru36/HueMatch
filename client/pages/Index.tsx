@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Upload, Camera, Sparkles, ArrowRight } from 'lucide-react';
+import { Upload, Camera, Sparkles, ArrowRight, Heart, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface UploadedImage {
