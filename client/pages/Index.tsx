@@ -404,7 +404,7 @@ export default function Index() {
                       <h4 className="text-lg font-semibold text-gray-800 text-center">
                         Alternative Matches
                       </h4>
-                      <div className="grid grid-cols-3 gap-4">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                         {foundationMatch.alternativeMatches.map((alt, index) => (
                           <div key={index} className="text-center space-y-2">
                             <div
