@@ -130,7 +130,7 @@ export const handleFoundationMatch: RequestHandler = (req, res) => {
     }
     
     recommendations.push("For best results, test the foundation on your jawline in natural daylight");
-    recommendations.push("Consider the MAC Studio Fix Fluid or Pro Longwear formulations for this shade");
+    recommendations.push("This project is based on MAC Studio Fix Fluid or Pro Longwear formulations shades. https://www.maccosmetics.in/products/face/foundations");
     
     const response: FoundationMatchResponse = {
       bestMatch: {
