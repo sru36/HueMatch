@@ -294,7 +294,7 @@ export default function Index() {
                       <Button
                         onClick={handleFindShade}
                         disabled={isLoading}
-                        className="w-full bg-gradient-to-r from-soft-pink-500 to-soft-pink-600 hover:from-soft-pink-600 hover:to-soft-pink-700 text-white rounded-xl py-6 text-lg font-semibold font-button disabled:opacity-70 disabled:cursor-not-allowed"
+                        className="w-full bg-brand-pink hover:bg-brand-pink/90 text-white rounded-xl py-6 text-lg font-semibold font-button disabled:opacity-70 disabled:cursor-not-allowed"
                       >
                         {isLoading ? (
                           <>
@@ -414,27 +414,19 @@ export default function Index() {
                   )}
 
                   {/* Recommendations */}
-                  <div className="bg-soft-pink-50 border border-soft-pink-200 rounded-xl p-6 space-y-4">
+                  <div className="space-y-4">
                     <h4 className="font-semibold text-gray-800 flex items-center gap-2">
-                      <Sparkles className="w-5 h-5 text-soft-pink-600" />
+                      <Sparkles className="w-5 h-5 text-brand-pink" />
                       Recommendations
                     </h4>
                     <ul className="space-y-2">
                       {foundationMatch.recommendations.map((rec, index) => (
                         <li key={index} className="text-sm text-gray-700 flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 bg-soft-pink-400 rounded-full mt-2 flex-shrink-0" />
+                          <span className="w-1.5 h-1.5 bg-brand-pink rounded-full mt-2 flex-shrink-0" />
                           {rec}
                         </li>
                       ))}
                     </ul>
-                  </div>
-
-                  {/* Disclaimer */}
-                  <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-                    <p className="text-sm text-amber-700 text-center">
-                      <strong>Disclaimer:</strong> Accuracy depends on lighting conditions and the selected pixel.
-                      We recommend testing the shade in-store for the best match.
-                    </p>
                   </div>
 
                   {/* Action Buttons */}
@@ -446,14 +438,14 @@ export default function Index() {
                         setSelectedPixel(null);
                         setFoundationMatch(null);
                       }}
-                      className="bg-gradient-to-r from-soft-pink-500 to-soft-pink-600 hover:from-soft-pink-600 hover:to-soft-pink-700 text-white rounded-xl px-8 py-4"
+                      className="bg-brand-pink hover:bg-brand-pink/90 text-white rounded-xl px-8 py-4"
                     >
                       Try Another Photo
                     </Button>
                     <Button
                       onClick={() => setStep('picker')}
                       variant="outline"
-                      className="border-soft-pink-300 text-soft-pink-600 hover:bg-soft-pink-50 rounded-xl px-8 py-4"
+                      className="border-brand-pink text-brand-pink hover:bg-brand-pink/10 rounded-xl px-8 py-4"
                     >
                       Select Different Pixel
                     </Button>
