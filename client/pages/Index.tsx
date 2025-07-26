@@ -137,9 +137,6 @@ export default function Index() {
           <div className="text-center space-y-12 pt-24 animate-in fade-in duration-700">
             <div className="space-y-8">
               <div className="space-y-4">
-                <h2 className="text-2xl font-semibold text-brand-purple uppercase tracking-wide">
-                  FOUNDATION
-                </h2>
                 <h3 className="text-5xl md:text-6xl font-bold font-heading leading-tight text-brand-purple">
                   Find the <em className="italic">right</em> foundation
                   <br />
