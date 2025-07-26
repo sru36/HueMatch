@@ -204,7 +204,7 @@ export default function Index() {
 
         {/* Upload Section */}
         {step === 'upload' && (
-          <div className="space-y-8 pt-8">
+          <div className="space-y-8 pt-8 animate-in slide-in-from-right duration-500">
             <div className="text-center space-y-4">
               <h2 className="text-4xl font-bold text-gray-800">Upload Your Photo</h2>
               <p className="text-lg text-gray-600">Choose a clear photo with good lighting for the most accurate results</p>
