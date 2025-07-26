@@ -97,21 +97,26 @@ export default function Index() {
 
   const handleFindShade = async () => {
     if (!selectedPixel) return;
-    
+
+    setIsLoading(true);
     try {
       const response = await fetch('/api/foundation-match', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ rgb: selectedPixel.rgb })
       });
-      
+
       if (response.ok) {
-        const result = await response.json();
-        // For now, just move to results step
+        const result: FoundationMatch = await response.json();
+        setFoundationMatch(result);
         setStep('results');
+      } else {
+        console.error('API error:', await response.text());
       }
     } catch (error) {
       console.error('Error finding foundation match:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
