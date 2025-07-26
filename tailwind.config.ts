@@ -13,6 +13,11 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        'heading': ['Prociono', 'serif'],
+        'body': ['Instrument Sans', 'sans-serif'],
+        'button': ['Poppins', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
