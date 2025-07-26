@@ -129,7 +129,7 @@ export default function Index() {
             <div className="w-10 h-10 bg-gradient-to-br from-soft-pink-400 to-soft-pink-600 rounded-xl flex items-center justify-center">
               <Sparkles className="w-6 h-6 text-white" />
             </div>
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-soft-pink-600 to-warm-beige-700 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold font-heading bg-gradient-to-r from-soft-pink-600 to-warm-beige-700 bg-clip-text text-transparent">
               HueMatch
             </h1>
           </div>
