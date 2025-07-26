@@ -157,7 +157,7 @@ export default function Index() {
               <Button
                 onClick={() => setStep('upload')}
                 size="lg"
-                className="bg-gradient-to-r from-soft-pink-500 to-soft-pink-600 hover:from-soft-pink-600 hover:to-soft-pink-700 text-white px-8 py-6 text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="bg-gradient-to-r from-soft-pink-500 to-soft-pink-600 hover:from-soft-pink-600 hover:to-soft-pink-700 text-white px-8 py-6 text-lg font-button rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 <Camera className="w-6 h-6 mr-3" />
                 Get Started
@@ -232,7 +232,7 @@ export default function Index() {
                     onClick={() => fileInputRef.current?.click()}
                     variant="outline"
                     size="lg"
-                    className="border-soft-pink-300 text-soft-pink-600 hover:bg-soft-pink-50"
+                    className="border-soft-pink-300 text-soft-pink-600 hover:bg-soft-pink-50 font-button"
                   >
                     Choose File
                   </Button>
@@ -302,7 +302,7 @@ export default function Index() {
                       <Button
                         onClick={handleFindShade}
                         disabled={isLoading}
-                        className="w-full bg-gradient-to-r from-soft-pink-500 to-soft-pink-600 hover:from-soft-pink-600 hover:to-soft-pink-700 text-white rounded-xl py-6 text-lg font-semibold disabled:opacity-70 disabled:cursor-not-allowed"
+                        className="w-full bg-gradient-to-r from-soft-pink-500 to-soft-pink-600 hover:from-soft-pink-600 hover:to-soft-pink-700 text-white rounded-xl py-6 text-lg font-semibold font-button disabled:opacity-70 disabled:cursor-not-allowed"
                       >
                         {isLoading ? (
                           <>
