@@ -336,7 +336,7 @@ export default function Index() {
 
         {/* Results Section */}
         {step === 'results' && foundationMatch && (
-          <div className="space-y-8 pt-8">
+          <div className="space-y-8 pt-8 animate-in zoom-in duration-700">
             <div className="text-center space-y-4">
               <h2 className="text-4xl font-bold text-gray-800">Your Perfect Match</h2>
               <p className="text-lg text-gray-600">Based on your skin tone analysis</p>
