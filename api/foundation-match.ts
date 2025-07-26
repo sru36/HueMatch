@@ -1,4 +1,4 @@
-import { RequestHandler } from "express";
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 // MAC Foundation shade database with RGB color values
 const MAC_FOUNDATIONS = [
@@ -96,7 +96,7 @@ export interface FoundationMatchResponse {
   recommendations: string[];
 }
 
-export const handleFoundationMatch: RequestHandler = (req, res) => {
+export default function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const { rgb } = req.body as FoundationMatchRequest;
 
@@ -131,7 +131,7 @@ export const handleFoundationMatch: RequestHandler = (req, res) => {
     const alternativeMatches = matches.slice(1, 4);
 
     // Generate recommendations based on results
-    const recommendations = [];
+    const recommendations: string[] = [];
 
     if (confidence < 70) {
       recommendations.push(
@@ -176,4 +176,4 @@ export const handleFoundationMatch: RequestHandler = (req, res) => {
       .status(500)
       .json({ error: "Internal server error during foundation matching" });
   }
-};
+}
