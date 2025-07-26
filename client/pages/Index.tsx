@@ -188,9 +188,9 @@ export default function Index() {
               
               <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-warm-beige-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <div className="w-8 h-8 rounded-full border-4 border-warm-beige-600 relative">
-                      <div className="absolute inset-1 bg-warm-beige-600 rounded-full"></div>
+                  <div className="w-16 h-16 bg-brand-light-pink rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <div className="w-8 h-8 rounded-full border-4 border-brand-purple relative">
+                      <div className="absolute inset-1 bg-brand-purple rounded-full"></div>
                     </div>
                   </div>
                   <h3 className="text-xl font-semibold font-heading mb-3 text-gray-800">Select Your Skin</h3>
@@ -200,8 +200,8 @@ export default function Index() {
               
               <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-soft-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Sparkles className="w-8 h-8 text-soft-pink-600" />
+                  <div className="w-16 h-16 bg-brand-light-pink rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Sparkles className="w-8 h-8 text-brand-purple" />
                   </div>
                   <h3 className="text-xl font-semibold font-heading mb-3 text-gray-800">Get Your Match</h3>
                   <p className="text-gray-600">Discover your perfect MAC foundation shade instantly.</p>
@@ -483,27 +483,27 @@ export default function Index() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full bg-gradient-to-r from-soft-pink-50 to-warm-beige-50 border-t border-soft-pink-100 mt-16">
+      <footer className="w-full bg-gradient-to-r from-brand-light-pink/30 to-brand-light-pink/50 border-t border-brand-light-pink mt-16">
         <div className="max-w-6xl mx-auto px-6 py-8">
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-2 text-gray-600">
               <span className="text-sm">© 2025 Srushti Rawal. Built with</span>
-              <Heart className="w-4 h-4 text-soft-pink-500 fill-current" />
+              <Heart className="w-4 h-4 text-brand-pink fill-current" />
               <a
                 href="https://srushtifr.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-soft-pink-600 hover:text-soft-pink-700 transition-colors duration-200 font-medium"
+                className="inline-flex items-center gap-1 text-brand-purple hover:text-brand-purple/80 transition-colors duration-200 font-medium"
               >
                 <span>by the creator</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
             <div className="flex items-center justify-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-soft-pink-400 to-soft-pink-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-brand-purple rounded-lg flex items-center justify-center">
                 <Sparkles className="w-4 h-4 text-white" />
               </div>
-              <span className="text-sm font-heading font-medium bg-gradient-to-r from-soft-pink-600 to-warm-beige-700 bg-clip-text text-transparent">
+              <span className="text-sm font-title font-medium text-brand-purple">
                 HueMatch
               </span>
             </div>
