@@ -141,7 +141,7 @@ export default function Index() {
         {step === 'welcome' && (
           <div className="text-center space-y-8 pt-16 animate-in fade-in duration-700">
             <div className="space-y-6">
-              <h2 className="text-5xl md:text-6xl font-bold leading-tight">
+              <h2 className="text-5xl md:text-6xl font-bold font-heading leading-tight">
                 Find Your Perfect{' '}
                 <span className="bg-gradient-to-r from-soft-pink-500 to-soft-pink-700 bg-clip-text text-transparent">
                   MAC Foundation
@@ -172,7 +172,7 @@ export default function Index() {
                   <div className="w-16 h-16 bg-soft-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Upload className="w-8 h-8 text-soft-pink-600" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 text-gray-800">Upload Your Photo</h3>
+                  <h3 className="text-xl font-semibold font-heading mb-3 text-gray-800">Upload Your Photo</h3>
                   <p className="text-gray-600">Take or upload a clear photo in natural lighting for best results.</p>
                 </CardContent>
               </Card>
@@ -184,7 +184,7 @@ export default function Index() {
                       <div className="absolute inset-1 bg-warm-beige-600 rounded-full"></div>
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 text-gray-800">Select Your Skin</h3>
+                  <h3 className="text-xl font-semibold font-heading mb-3 text-gray-800">Select Your Skin</h3>
                   <p className="text-gray-600">Click on your skin to analyze the exact color tone.</p>
                 </CardContent>
               </Card>
@@ -194,7 +194,7 @@ export default function Index() {
                   <div className="w-16 h-16 bg-soft-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Sparkles className="w-8 h-8 text-soft-pink-600" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 text-gray-800">Get Your Match</h3>
+                  <h3 className="text-xl font-semibold font-heading mb-3 text-gray-800">Get Your Match</h3>
                   <p className="text-gray-600">Discover your perfect MAC foundation shade instantly.</p>
                 </CardContent>
               </Card>
@@ -206,7 +206,7 @@ export default function Index() {
         {step === 'upload' && (
           <div className="space-y-8 pt-8 animate-in slide-in-from-right duration-500">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold text-gray-800">Upload Your Photo</h2>
+              <h2 className="text-4xl font-bold font-heading text-gray-800">Upload Your Photo</h2>
               <p className="text-lg text-gray-600">Choose a clear photo with good lighting for the most accurate results</p>
             </div>
             
@@ -263,7 +263,7 @@ export default function Index() {
         {step === 'picker' && uploadedImage && (
           <div className="space-y-8 pt-8 animate-in slide-in-from-left duration-500">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold text-gray-800">Select Your Skin Tone</h2>
+              <h2 className="text-4xl font-bold font-heading text-gray-800">Select Your Skin Tone</h2>
               <p className="text-lg text-gray-600">Click on an area of your skin for color analysis</p>
             </div>
             
@@ -338,7 +338,7 @@ export default function Index() {
         {step === 'results' && foundationMatch && (
           <div className="space-y-8 pt-8 animate-in zoom-in duration-700">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold text-gray-800">Your Perfect Match</h2>
+              <h2 className="text-4xl font-bold font-heading text-gray-800">Your Perfect Match</h2>
               <p className="text-lg text-gray-600">Based on your skin tone analysis</p>
             </div>
 
