@@ -35,7 +35,9 @@ interface FoundationMatch {
 export default function Index() {
   const [uploadedImage, setUploadedImage] = useState<UploadedImage | null>(null);
   const [selectedPixel, setSelectedPixel] = useState<PixelData | null>(null);
+  const [foundationMatch, setFoundationMatch] = useState<FoundationMatch | null>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState<'welcome' | 'upload' | 'picker' | 'results'>('welcome');
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
