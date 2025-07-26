@@ -472,6 +472,35 @@ export default function Index() {
           </div>
         )}
       </main>
+
+      {/* Footer */}
+      <footer className="w-full bg-gradient-to-r from-soft-pink-50 to-warm-beige-50 border-t border-soft-pink-100 mt-16">
+        <div className="max-w-6xl mx-auto px-6 py-8">
+          <div className="text-center space-y-4">
+            <div className="flex items-center justify-center gap-2 text-gray-600">
+              <span className="text-sm">© 2025 Srushti Rawal. Built with</span>
+              <Heart className="w-4 h-4 text-soft-pink-500 fill-current" />
+              <a
+                href="https://srushtifr.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-soft-pink-600 hover:text-soft-pink-700 transition-colors duration-200 font-medium"
+              >
+                <span>by the creator</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-8 h-8 bg-gradient-to-br from-soft-pink-400 to-soft-pink-600 rounded-lg flex items-center justify-center">
+                <Sparkles className="w-4 h-4 text-white" />
+              </div>
+              <span className="text-sm font-heading font-medium bg-gradient-to-r from-soft-pink-600 to-warm-beige-700 bg-clip-text text-transparent">
+                HueMatch
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
