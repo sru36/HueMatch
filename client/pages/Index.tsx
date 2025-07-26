@@ -261,7 +261,7 @@ export default function Index() {
 
         {/* Pixel Picker Section */}
         {step === 'picker' && uploadedImage && (
-          <div className="space-y-8 pt-8">
+          <div className="space-y-8 pt-8 animate-in slide-in-from-left duration-500">
             <div className="text-center space-y-4">
               <h2 className="text-4xl font-bold text-gray-800">Select Your Skin Tone</h2>
               <p className="text-lg text-gray-600">Click on an area of your skin for color analysis</p>
