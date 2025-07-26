@@ -17,6 +17,7 @@ export default {
         'heading': ['Prociono', 'serif'],
         'body': ['Instrument Sans', 'sans-serif'],
         'button': ['Poppins', 'sans-serif'],
+        'title': ['HueMatchTitle', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
