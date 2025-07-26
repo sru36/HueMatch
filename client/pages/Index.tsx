@@ -168,11 +168,9 @@ export default function Index() {
               <Button
                 onClick={() => setStep('upload')}
                 size="lg"
-                className="bg-gradient-to-r from-soft-pink-500 to-soft-pink-600 hover:from-soft-pink-600 hover:to-soft-pink-700 text-white px-8 py-6 text-lg font-button rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="bg-brand-pink hover:bg-brand-pink/90 text-brand-purple px-12 py-6 text-lg font-button font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 uppercase tracking-wide"
               >
-                <Camera className="w-6 h-6 mr-3" />
-                Get Started
-                <ArrowRight className="w-5 h-5 ml-3" />
+                FIND YOUR PERFECT SHADE & TRY IT ON NOW!
               </Button>
             </div>
 
