@@ -166,7 +166,7 @@ export default function Index() {
             </div>
 
             {/* Feature highlights */}
-            <div className="grid md:grid-cols-3 gap-8 pt-16">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 pt-16">
               <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-soft-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
