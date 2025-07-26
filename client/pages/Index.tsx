@@ -134,18 +134,34 @@ export default function Index() {
       <main className="max-w-4xl mx-auto px-6 pb-16">
         {/* Welcome Section */}
         {step === 'welcome' && (
-          <div className="text-center space-y-8 pt-16 animate-in fade-in duration-700">
-            <div className="space-y-6">
-              <h2 className="text-5xl md:text-6xl font-bold font-heading leading-tight">
-                Find Your Perfect{' '}
-                <span className="bg-gradient-to-r from-soft-pink-500 to-soft-pink-700 bg-clip-text text-transparent">
-                  MAC Foundation
-                </span>{' '}
-                Shade
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                Upload a photo, select your skin tone, and discover your ideal MAC foundation match with AI-powered color analysis.
-              </p>
+          <div className="text-center space-y-12 pt-24 animate-in fade-in duration-700">
+            {/* Hero Badge */}
+            <div className="inline-block">
+              <div className="bg-brand-purple text-white px-6 py-3 rounded-full text-sm font-medium tracking-wide">
+                VIRTUAL SCIENTIFIC COLOR FINDER
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h2 className="text-2xl font-semibold text-brand-purple uppercase tracking-wide">
+                  FOUNDATION
+                </h2>
+                <h3 className="text-5xl md:text-6xl font-bold font-heading leading-tight text-brand-purple">
+                  Find the <em className="italic">right</em> foundation
+                  <br />
+                  shade for your skin
+                </h3>
+              </div>
+
+              {/* Foundation Swatches Image */}
+              <div className="flex justify-center py-8">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F0d68dce6c99045fc980ec4bed2ae11cf%2F1b194fa192134fcd91c262b832f1819e?format=webp&width=800"
+                  alt="Foundation swatches"
+                  className="max-w-sm md:max-w-md h-auto"
+                />
+              </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
