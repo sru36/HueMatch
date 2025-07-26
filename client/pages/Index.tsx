@@ -167,7 +167,7 @@ export default function Index() {
 
             {/* Feature highlights */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 pt-16">
-              <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+              <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-soft-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Upload className="w-8 h-8 text-soft-pink-600" />
@@ -177,7 +177,7 @@ export default function Index() {
                 </CardContent>
               </Card>
               
-              <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+              <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-warm-beige-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <div className="w-8 h-8 rounded-full border-4 border-warm-beige-600 relative">
@@ -189,7 +189,7 @@ export default function Index() {
                 </CardContent>
               </Card>
               
-              <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+              <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-soft-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Sparkles className="w-8 h-8 text-soft-pink-600" />
