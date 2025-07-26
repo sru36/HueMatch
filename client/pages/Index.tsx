@@ -1,8 +1,15 @@
-import React, { useState, useRef } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Upload, Camera, Sparkles, ArrowRight, Heart, ExternalLink } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import React, { useState, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Upload,
+  Camera,
+  Sparkles,
+  ArrowRight,
+  Heart,
+  ExternalLink,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface UploadedImage {
   file: File;
@@ -33,21 +40,26 @@ interface FoundationMatch {
 }
 
 export default function Index() {
-  const [uploadedImage, setUploadedImage] = useState<UploadedImage | null>(null);
+  const [uploadedImage, setUploadedImage] = useState<UploadedImage | null>(
+    null,
+  );
   const [selectedPixel, setSelectedPixel] = useState<PixelData | null>(null);
-  const [foundationMatch, setFoundationMatch] = useState<FoundationMatch | null>(null);
+  const [foundationMatch, setFoundationMatch] =
+    useState<FoundationMatch | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [step, setStep] = useState<'welcome' | 'upload' | 'picker' | 'results'>('welcome');
+  const [step, setStep] = useState<"welcome" | "upload" | "picker" | "results">(
+    "welcome",
+  );
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
 
   const handleFileSelect = (file: File) => {
-    if (file && file.type.startsWith('image/')) {
+    if (file && file.type.startsWith("image/")) {
       const url = URL.createObjectURL(file);
       setUploadedImage({ file, url });
-      setStep('picker');
+      setStep("picker");
     }
   };
 
@@ -67,9 +79,9 @@ export default function Index() {
     if (!imageRef.current || !canvasRef.current) return;
 
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     const img = imageRef.current;
-    
+
     if (!ctx) return;
 
     // Get click coordinates relative to the image
@@ -80,18 +92,18 @@ export default function Index() {
     // Set canvas size to match image
     canvas.width = img.naturalWidth;
     canvas.height = img.naturalHeight;
-    
+
     // Draw image to canvas
     ctx.drawImage(img, 0, 0);
-    
+
     // Get pixel data
     const imageData = ctx.getImageData(Math.floor(x), Math.floor(y), 1, 1);
     const [r, g, b] = imageData.data;
-    
+
     setSelectedPixel({
       x: Math.floor(x),
       y: Math.floor(y),
-      rgb: [r, g, b]
+      rgb: [r, g, b],
     });
   };
 
@@ -100,21 +112,21 @@ export default function Index() {
 
     setIsLoading(true);
     try {
-      const response = await fetch('/api/foundation-match', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ rgb: selectedPixel.rgb })
+      const response = await fetch("/api/foundation-match", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ rgb: selectedPixel.rgb }),
       });
 
       if (response.ok) {
         const result: FoundationMatch = await response.json();
         setFoundationMatch(result);
-        setStep('results');
+        setStep("results");
       } else {
-        console.error('API error:', await response.text());
+        console.error("API error:", await response.text());
       }
     } catch (error) {
-      console.error('Error finding foundation match:', error);
+      console.error("Error finding foundation match:", error);
     } finally {
       setIsLoading(false);
     }
@@ -133,7 +145,7 @@ export default function Index() {
 
       <main className="max-w-4xl mx-auto px-6 pb-16">
         {/* Welcome Section */}
-        {step === 'welcome' && (
+        {step === "welcome" && (
           <div className="text-center space-y-12 pt-24 animate-in fade-in duration-700">
             <div className="space-y-8">
               <div className="space-y-4">
@@ -144,10 +156,10 @@ export default function Index() {
                 </h3>
               </div>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-12">
               <Button
-                onClick={() => setStep('upload')}
+                onClick={() => setStep("upload")}
                 size="lg"
                 className="rounded-xl border border-transparent bg-brand-pink text-brand-purple font-button font-semibold flex items-center gap-4 text-xl py-6 px-12 hover:scale-110 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-lg uppercase tracking-wide group"
               >
@@ -164,11 +176,16 @@ export default function Index() {
                   <div className="w-16 h-16 bg-brand-light-pink rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Upload className="w-8 h-8 text-brand-purple" />
                   </div>
-                  <h3 className="text-xl font-semibold font-heading mb-3 text-gray-800">Upload Your Photo</h3>
-                  <p className="text-gray-600">Take or upload a clear photo in natural lighting for best results.</p>
+                  <h3 className="text-xl font-semibold font-heading mb-3 text-gray-800">
+                    Upload Your Photo
+                  </h3>
+                  <p className="text-gray-600">
+                    Take or upload a clear photo in natural lighting for best
+                    results.
+                  </p>
                 </CardContent>
               </Card>
-              
+
               <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-brand-light-pink rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -176,18 +193,26 @@ export default function Index() {
                       <div className="absolute inset-1 bg-brand-purple rounded-full"></div>
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold font-heading mb-3 text-gray-800">Select Your Skin</h3>
-                  <p className="text-gray-600">Click on your skin to analyze the exact color tone.</p>
+                  <h3 className="text-xl font-semibold font-heading mb-3 text-gray-800">
+                    Select Your Skin
+                  </h3>
+                  <p className="text-gray-600">
+                    Click on your skin to analyze the exact color tone.
+                  </p>
                 </CardContent>
               </Card>
-              
+
               <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-brand-light-pink rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Sparkles className="w-8 h-8 text-brand-purple" />
                   </div>
-                  <h3 className="text-xl font-semibold font-heading mb-3 text-gray-800">Get Your Match</h3>
-                  <p className="text-gray-600">Discover your perfect MAC foundation shade instantly.</p>
+                  <h3 className="text-xl font-semibold font-heading mb-3 text-gray-800">
+                    Get Your Match
+                  </h3>
+                  <p className="text-gray-600">
+                    Discover your perfect MAC foundation shade instantly.
+                  </p>
                 </CardContent>
               </Card>
             </div>
@@ -195,20 +220,30 @@ export default function Index() {
         )}
 
         {/* Upload Section */}
-        {step === 'upload' && (
+        {step === "upload" && (
           <div className="space-y-8 pt-8 animate-in slide-in-from-right duration-500">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold font-heading text-gray-800">Upload Your Photo</h2>
-              <p className="text-lg text-gray-600">Choose a clear photo with good lighting for the most accurate results</p>
+              <h2 className="text-4xl font-bold font-heading text-gray-800">
+                Upload Your Photo
+              </h2>
+              <p className="text-lg text-gray-600">
+                Choose a clear photo with good lighting for the most accurate
+                results
+              </p>
             </div>
-            
+
             <Card
               className={cn(
                 "border-2 border-dashed transition-all duration-300 bg-white/80 backdrop-blur-sm",
-                isDragging ? "border-brand-pink bg-brand-pink/10" : "border-gray-300 hover:border-brand-pink"
+                isDragging
+                  ? "border-brand-pink bg-brand-pink/10"
+                  : "border-gray-300 hover:border-brand-pink",
               )}
               onDrop={handleDrop}
-              onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
+              onDragOver={(e) => {
+                e.preventDefault();
+                setIsDragging(true);
+              }}
               onDragLeave={() => setIsDragging(false)}
             >
               <CardContent className="p-16 text-center">
@@ -217,8 +252,12 @@ export default function Index() {
                     <Upload className="w-10 h-10 text-white" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-xl font-semibold text-gray-800">Drop your photo here</h3>
-                    <p className="text-gray-500">or click to browse your files</p>
+                    <h3 className="text-xl font-semibold text-gray-800">
+                      Drop your photo here
+                    </h3>
+                    <p className="text-gray-500">
+                      or click to browse your files
+                    </p>
                   </div>
                   <Button
                     onClick={() => fileInputRef.current?.click()}
@@ -238,10 +277,10 @@ export default function Index() {
                 </div>
               </CardContent>
             </Card>
-            
+
             <div className="text-center">
               <Button
-                onClick={() => setStep('welcome')}
+                onClick={() => setStep("welcome")}
                 variant="ghost"
                 className="text-gray-500 hover:text-gray-700"
               >
@@ -252,13 +291,17 @@ export default function Index() {
         )}
 
         {/* Pixel Picker Section */}
-        {step === 'picker' && uploadedImage && (
+        {step === "picker" && uploadedImage && (
           <div className="space-y-8 pt-8 animate-in slide-in-from-left duration-500">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold font-heading text-gray-800">Select Your Skin Tone</h2>
-              <p className="text-lg text-gray-600">Click on an area of your skin for color analysis</p>
+              <h2 className="text-4xl font-bold font-heading text-gray-800">
+                Select Your Skin Tone
+              </h2>
+              <p className="text-lg text-gray-600">
+                Click on an area of your skin for color analysis
+              </p>
             </div>
-            
+
             <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
               <CardContent className="p-8">
                 <div className="space-y-6">
@@ -272,25 +315,29 @@ export default function Index() {
                     />
                     <canvas ref={canvasRef} className="hidden" />
                   </div>
-                  
+
                   {selectedPixel && (
                     <div className="bg-gray-50 rounded-xl p-6 space-y-4">
-                      <h3 className="text-lg font-semibold text-gray-800">Selected Color</h3>
+                      <h3 className="text-lg font-semibold text-gray-800">
+                        Selected Color
+                      </h3>
                       <div className="flex items-center gap-4">
-                        <div 
+                        <div
                           className="w-16 h-16 rounded-lg border-2 border-gray-200 shadow-sm"
-                          style={{ backgroundColor: `rgb(${selectedPixel.rgb.join(',')})` }}
+                          style={{
+                            backgroundColor: `rgb(${selectedPixel.rgb.join(",")})`,
+                          }}
                         />
                         <div className="space-y-1">
                           <p className="font-mono text-sm text-gray-600">
-                            RGB({selectedPixel.rgb.join(', ')})
+                            RGB({selectedPixel.rgb.join(", ")})
                           </p>
                           <p className="text-sm text-gray-500">
                             Position: ({selectedPixel.x}, {selectedPixel.y})
                           </p>
                         </div>
                       </div>
-                      
+
                       <Button
                         onClick={handleFindShade}
                         disabled={isLoading}
@@ -313,10 +360,10 @@ export default function Index() {
                 </div>
               </CardContent>
             </Card>
-            
+
             <div className="text-center">
               <Button
-                onClick={() => setStep('upload')}
+                onClick={() => setStep("upload")}
                 variant="ghost"
                 className="text-gray-500 hover:text-gray-700"
               >
@@ -327,11 +374,15 @@ export default function Index() {
         )}
 
         {/* Results Section */}
-        {step === 'results' && foundationMatch && (
+        {step === "results" && foundationMatch && (
           <div className="space-y-8 pt-8 animate-in zoom-in duration-700">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold font-heading text-gray-800">Your Perfect Match</h2>
-              <p className="text-lg text-gray-600">Based on your skin tone analysis</p>
+              <h2 className="text-4xl font-bold font-heading text-gray-800">
+                Your Perfect Match
+              </h2>
+              <p className="text-lg text-gray-600">
+                Based on your skin tone analysis
+              </p>
             </div>
 
             {/* Main Match Result */}
@@ -358,12 +409,16 @@ export default function Index() {
                         <div className="text-center space-y-3">
                           <div
                             className="w-24 h-24 rounded-2xl border-4 border-gray-200 shadow-lg mx-auto"
-                            style={{ backgroundColor: `rgb(${selectedPixel.rgb.join(',')})` }}
+                            style={{
+                              backgroundColor: `rgb(${selectedPixel.rgb.join(",")})`,
+                            }}
                           />
                           <div className="space-y-1">
-                            <p className="font-semibold text-gray-800">Your Skin Tone</p>
+                            <p className="font-semibold text-gray-800">
+                              Your Skin Tone
+                            </p>
                             <p className="text-xs text-gray-500 font-mono">
-                              RGB({selectedPixel.rgb.join(', ')})
+                              RGB({selectedPixel.rgb.join(", ")})
                             </p>
                             <p className="text-xs text-gray-500 capitalize">
                               {foundationMatch.userUndertone} undertones
@@ -375,12 +430,16 @@ export default function Index() {
                       <div className="text-center space-y-3">
                         <div
                           className="w-24 h-24 rounded-2xl border-4 border-soft-pink-200 shadow-lg mx-auto"
-                          style={{ backgroundColor: `rgb(${foundationMatch.bestMatch.rgb.join(',')})` }}
+                          style={{
+                            backgroundColor: `rgb(${foundationMatch.bestMatch.rgb.join(",")})`,
+                          }}
                         />
                         <div className="space-y-1">
-                          <p className="font-semibold text-gray-800">Foundation Match</p>
+                          <p className="font-semibold text-gray-800">
+                            Foundation Match
+                          </p>
                           <p className="text-xs text-gray-500 font-mono">
-                            RGB({foundationMatch.bestMatch.rgb.join(', ')})
+                            RGB({foundationMatch.bestMatch.rgb.join(", ")})
                           </p>
                           <p className="text-xs text-gray-500">
                             MAC {foundationMatch.bestMatch.name}
@@ -397,18 +456,26 @@ export default function Index() {
                         Alternative Matches
                       </h4>
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                        {foundationMatch.alternativeMatches.map((alt, index) => (
-                          <div key={index} className="text-center space-y-2">
-                            <div
-                              className="w-16 h-16 rounded-lg border-2 border-gray-200 shadow-sm mx-auto"
-                              style={{ backgroundColor: `rgb(${alt.rgb.join(',')})` }}
-                            />
-                            <div className="space-y-1">
-                              <p className="text-sm font-medium text-gray-800">MAC {alt.name}</p>
-                              <p className="text-xs text-gray-500 capitalize">{alt.undertone}</p>
+                        {foundationMatch.alternativeMatches.map(
+                          (alt, index) => (
+                            <div key={index} className="text-center space-y-2">
+                              <div
+                                className="w-16 h-16 rounded-lg border-2 border-gray-200 shadow-sm mx-auto"
+                                style={{
+                                  backgroundColor: `rgb(${alt.rgb.join(",")})`,
+                                }}
+                              />
+                              <div className="space-y-1">
+                                <p className="text-sm font-medium text-gray-800">
+                                  MAC {alt.name}
+                                </p>
+                                <p className="text-xs text-gray-500 capitalize">
+                                  {alt.undertone}
+                                </p>
+                              </div>
                             </div>
-                          </div>
-                        ))}
+                          ),
+                        )}
                       </div>
                     </div>
                   )}
@@ -426,7 +493,10 @@ export default function Index() {
                         const parts = rec.split(urlRegex);
 
                         return (
-                          <li key={index} className="text-sm text-gray-700 flex items-start gap-2">
+                          <li
+                            key={index}
+                            className="text-sm text-gray-700 flex items-start gap-2"
+                          >
                             <span className="w-1.5 h-1.5 bg-brand-pink rounded-full mt-2 flex-shrink-0" />
                             <span>
                               {parts.map((part, partIndex) => {
@@ -456,7 +526,7 @@ export default function Index() {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button
                       onClick={() => {
-                        setStep('welcome');
+                        setStep("welcome");
                         setUploadedImage(null);
                         setSelectedPixel(null);
                         setFoundationMatch(null);
@@ -466,7 +536,7 @@ export default function Index() {
                       Try Another Photo
                     </Button>
                     <Button
-                      onClick={() => setStep('picker')}
+                      onClick={() => setStep("picker")}
                       variant="outline"
                       className="border-brand-pink text-brand-pink hover:bg-brand-pink/10 rounded-xl px-8 py-4"
                     >
