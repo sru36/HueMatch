@@ -334,55 +334,138 @@ export default function Index() {
           </div>
         )}
 
-        {/* Results Section (Placeholder) */}
-        {step === 'results' && (
+        {/* Results Section */}
+        {step === 'results' && foundationMatch && (
           <div className="space-y-8 pt-8">
             <div className="text-center space-y-4">
               <h2 className="text-4xl font-bold text-gray-800">Your Perfect Match</h2>
               <p className="text-lg text-gray-600">Based on your skin tone analysis</p>
             </div>
-            
+
+            {/* Main Match Result */}
             <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
-              <CardContent className="p-8 text-center">
-                <div className="space-y-6">
-                  <div className="text-2xl font-semibold text-gray-800">
-                    MAC Studio Fix Fluid - NC25
-                  </div>
-                  
-                  <div className="flex justify-center gap-8">
-                    {selectedPixel && (
-                      <div className="space-y-2">
-                        <div 
-                          className="w-20 h-20 rounded-lg border-2 border-gray-200 shadow-sm mx-auto"
-                          style={{ backgroundColor: `rgb(${selectedPixel.rgb.join(',')})` }}
-                        />
-                        <p className="text-sm text-gray-600">Your Skin Tone</p>
-                      </div>
-                    )}
-                    
+              <CardContent className="p-8">
+                <div className="space-y-8">
+                  {/* Best Match */}
+                  <div className="text-center space-y-6">
                     <div className="space-y-2">
-                      <div className="w-20 h-20 rounded-lg border-2 border-gray-200 shadow-sm mx-auto bg-[#D4A574]" />
-                      <p className="text-sm text-gray-600">Foundation Match</p>
+                      <h3 className="text-3xl font-bold text-gray-800">
+                        MAC {foundationMatch.bestMatch.name}
+                      </h3>
+                      <p className="text-lg text-gray-600">
+                        {foundationMatch.bestMatch.confidence}% confidence match
+                      </p>
+                      <p className="text-sm text-gray-500 capitalize">
+                        {foundationMatch.bestMatch.undertone} undertones
+                      </p>
+                    </div>
+
+                    {/* Color Swatches */}
+                    <div className="flex justify-center gap-12">
+                      {selectedPixel && (
+                        <div className="text-center space-y-3">
+                          <div
+                            className="w-24 h-24 rounded-2xl border-4 border-gray-200 shadow-lg mx-auto"
+                            style={{ backgroundColor: `rgb(${selectedPixel.rgb.join(',')})` }}
+                          />
+                          <div className="space-y-1">
+                            <p className="font-semibold text-gray-800">Your Skin Tone</p>
+                            <p className="text-xs text-gray-500 font-mono">
+                              RGB({selectedPixel.rgb.join(', ')})
+                            </p>
+                            <p className="text-xs text-gray-500 capitalize">
+                              {foundationMatch.userUndertone} undertones
+                            </p>
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="text-center space-y-3">
+                        <div
+                          className="w-24 h-24 rounded-2xl border-4 border-soft-pink-200 shadow-lg mx-auto"
+                          style={{ backgroundColor: `rgb(${foundationMatch.bestMatch.rgb.join(',')})` }}
+                        />
+                        <div className="space-y-1">
+                          <p className="font-semibold text-gray-800">Foundation Match</p>
+                          <p className="text-xs text-gray-500 font-mono">
+                            RGB({foundationMatch.bestMatch.rgb.join(', ')})
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            MAC {foundationMatch.bestMatch.name}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  
+
+                  {/* Alternative Matches */}
+                  {foundationMatch.alternativeMatches.length > 0 && (
+                    <div className="space-y-4">
+                      <h4 className="text-lg font-semibold text-gray-800 text-center">
+                        Alternative Matches
+                      </h4>
+                      <div className="grid grid-cols-3 gap-4">
+                        {foundationMatch.alternativeMatches.map((alt, index) => (
+                          <div key={index} className="text-center space-y-2">
+                            <div
+                              className="w-16 h-16 rounded-lg border-2 border-gray-200 shadow-sm mx-auto"
+                              style={{ backgroundColor: `rgb(${alt.rgb.join(',')})` }}
+                            />
+                            <div className="space-y-1">
+                              <p className="text-sm font-medium text-gray-800">MAC {alt.name}</p>
+                              <p className="text-xs text-gray-500 capitalize">{alt.undertone}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Recommendations */}
+                  <div className="bg-soft-pink-50 border border-soft-pink-200 rounded-xl p-6 space-y-4">
+                    <h4 className="font-semibold text-gray-800 flex items-center gap-2">
+                      <Sparkles className="w-5 h-5 text-soft-pink-600" />
+                      Recommendations
+                    </h4>
+                    <ul className="space-y-2">
+                      {foundationMatch.recommendations.map((rec, index) => (
+                        <li key={index} className="text-sm text-gray-700 flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 bg-soft-pink-400 rounded-full mt-2 flex-shrink-0" />
+                          {rec}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Disclaimer */}
                   <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-                    <p className="text-sm text-amber-700">
-                      <strong>Disclaimer:</strong> Accuracy depends on lighting conditions and the selected pixel. 
+                    <p className="text-sm text-amber-700 text-center">
+                      <strong>Disclaimer:</strong> Accuracy depends on lighting conditions and the selected pixel.
                       We recommend testing the shade in-store for the best match.
                     </p>
                   </div>
-                  
-                  <Button
-                    onClick={() => {
-                      setStep('welcome');
-                      setUploadedImage(null);
-                      setSelectedPixel(null);
-                    }}
-                    className="bg-gradient-to-r from-soft-pink-500 to-soft-pink-600 hover:from-soft-pink-600 hover:to-soft-pink-700 text-white rounded-xl px-8 py-4"
-                  >
-                    Try Another Photo
-                  </Button>
+
+                  {/* Action Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button
+                      onClick={() => {
+                        setStep('welcome');
+                        setUploadedImage(null);
+                        setSelectedPixel(null);
+                        setFoundationMatch(null);
+                      }}
+                      className="bg-gradient-to-r from-soft-pink-500 to-soft-pink-600 hover:from-soft-pink-600 hover:to-soft-pink-700 text-white rounded-xl px-8 py-4"
+                    >
+                      Try Another Photo
+                    </Button>
+                    <Button
+                      onClick={() => setStep('picker')}
+                      variant="outline"
+                      className="border-soft-pink-300 text-soft-pink-600 hover:bg-soft-pink-50 rounded-xl px-8 py-4"
+                    >
+                      Select Different Pixel
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
