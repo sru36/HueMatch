@@ -15,6 +15,23 @@ interface PixelData {
   rgb: [number, number, number];
 }
 
+interface FoundationMatch {
+  bestMatch: {
+    name: string;
+    rgb: [number, number, number];
+    undertone: string;
+    confidence: number;
+  };
+  alternativeMatches: Array<{
+    name: string;
+    rgb: [number, number, number];
+    undertone: string;
+    distance: number;
+  }>;
+  userUndertone: string;
+  recommendations: string[];
+}
+
 export default function Index() {
   const [uploadedImage, setUploadedImage] = useState<UploadedImage | null>(null);
   const [selectedPixel, setSelectedPixel] = useState<PixelData | null>(null);
