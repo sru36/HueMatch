@@ -135,9 +135,9 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-light-pink via-white to-brand-light-pink/30 transition-all duration-500">
       {/* Header */}
-      <header className="w-full px-6 py-12">
+      <header className="w-full px-4 py-8 sm:px-6 sm:py-12">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-high-empathy font-bold text-brand-purple">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-high-empathy font-bold text-brand-purple">
             HueMatch
           </h1>
         </div>
@@ -161,7 +161,7 @@ export default function Index() {
               <Button
                 onClick={() => setStep("upload")}
                 size="lg"
-                className="rounded-xl border border-transparent bg-brand-pink text-brand-purple font-button font-semibold flex items-center gap-4 text-xl py-6 px-12 hover:scale-110 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-lg uppercase tracking-wide group"
+                className="w-full sm:w-auto rounded-xl border border-transparent bg-brand-pink text-brand-purple font-button font-semibold flex items-center gap-4 text-lg sm:text-xl py-4 sm:py-6 px-6 sm:px-12 hover:scale-110 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-lg uppercase tracking-wide group"
               >
                 <Camera className="w-7 h-7 object-contain" />
                 FIND YOUR PERFECT SHADE
@@ -170,9 +170,9 @@ export default function Index() {
             </div>
 
             {/* Feature highlights */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 pt-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 pt-8 md:pt-16">
               <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                <CardContent className="p-8 text-center">
+                <CardContent className="p-4 sm:p-8 text-center">
                   <div className="w-16 h-16 bg-brand-light-pink rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Upload className="w-8 h-8 text-brand-purple" />
                   </div>
@@ -187,7 +187,7 @@ export default function Index() {
               </Card>
 
               <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                <CardContent className="p-8 text-center">
+                <CardContent className="p-4 sm:p-8 text-center">
                   <div className="w-16 h-16 bg-brand-light-pink rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <div className="w-8 h-8 rounded-full border-4 border-brand-purple relative">
                       <div className="absolute inset-1 bg-brand-purple rounded-full"></div>
@@ -203,7 +203,7 @@ export default function Index() {
               </Card>
 
               <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                <CardContent className="p-8 text-center">
+                <CardContent className="p-4 sm:p-8 text-center">
                   <div className="w-16 h-16 bg-brand-light-pink rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Sparkles className="w-8 h-8 text-brand-purple" />
                   </div>
@@ -222,13 +222,12 @@ export default function Index() {
         {/* Upload Section */}
         {step === "upload" && (
           <div className="space-y-8 pt-8 animate-in slide-in-from-right duration-500">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold font-sans text-gray-800">
+            <div className="text-center space-y-2 sm:space-y-4">
+              <h2 className="text-2xl sm:text-4xl font-bold font-sans text-gray-800">
                 Upload Your Photo
               </h2>
-              <p className="text-lg text-gray-600">
-                Choose a clear photo with good lighting for the most accurate
-                results
+              <p className="text-base sm:text-lg text-gray-600">
+                Choose a clear photo with good lighting for the most accurate results
               </p>
             </div>
 
@@ -246,7 +245,7 @@ export default function Index() {
               }}
               onDragLeave={() => setIsDragging(false)}
             >
-              <CardContent className="p-16 text-center">
+              <CardContent className="p-6 sm:p-16 text-center">
                 <div className="space-y-6">
                   <div className="w-20 h-20 bg-brand-pink rounded-2xl flex items-center justify-center mx-auto">
                     <Upload className="w-10 h-10 text-white" />
@@ -551,11 +550,11 @@ export default function Index() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full bg-gradient-to-r from-brand-light-pink/30 to-brand-light-pink/50 border-t border-brand-light-pink mt-16">
-        <div className="max-w-6xl mx-auto px-6 py-8">
-          <div className="text-center space-y-4">
-            <div className="flex items-center justify-center gap-2 text-gray-600">
-              <span className="text-sm">© 2025 Srushti Rawal. Built with</span>
+      <footer className="w-full bg-gradient-to-r from-brand-light-pink/30 to-brand-light-pink/50 border-t border-brand-light-pink mt-12 sm:mt-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+          <div className="text-center space-y-3 sm:space-y-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 text-gray-600">
+              <span className="text-xs sm:text-sm">© 2025 Srushti Rawal. Built with</span>
               <Heart className="w-4 h-4 text-brand-pink fill-current" />
               <a
                 href="https://srushtifr.vercel.app/"
@@ -567,9 +566,8 @@ export default function Index() {
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
-            <div className="flex items-center justify-center gap-3">
-
-              <span className="text-sm font-high-empathy font-medium text-brand-purple">
+            <div className="flex items-center justify-center gap-2 sm:gap-3">
+              <span className="text-xs sm:text-sm font-high-empathy font-medium text-brand-purple">
                 HueMatch
               </span>
             </div>
