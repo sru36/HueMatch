@@ -202,10 +202,10 @@ export default function Index() {
               <p className="text-lg text-gray-600">Choose a clear photo with good lighting for the most accurate results</p>
             </div>
             
-            <Card 
+            <Card
               className={cn(
                 "border-2 border-dashed transition-all duration-300 bg-white/80 backdrop-blur-sm",
-                isDragging ? "border-soft-pink-400 bg-soft-pink-50" : "border-gray-300 hover:border-soft-pink-300"
+                isDragging ? "border-brand-pink bg-brand-pink/10" : "border-gray-300 hover:border-brand-pink"
               )}
               onDrop={handleDrop}
               onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
@@ -213,8 +213,8 @@ export default function Index() {
             >
               <CardContent className="p-16 text-center">
                 <div className="space-y-6">
-                  <div className="w-20 h-20 bg-soft-pink-100 rounded-2xl flex items-center justify-center mx-auto">
-                    <Upload className="w-10 h-10 text-soft-pink-600" />
+                  <div className="w-20 h-20 bg-brand-pink rounded-2xl flex items-center justify-center mx-auto">
+                    <Upload className="w-10 h-10 text-white" />
                   </div>
                   <div className="space-y-2">
                     <h3 className="text-xl font-semibold text-gray-800">Drop your photo here</h3>
@@ -224,7 +224,7 @@ export default function Index() {
                     onClick={() => fileInputRef.current?.click()}
                     variant="outline"
                     size="lg"
-                    className="border-soft-pink-300 text-soft-pink-600 hover:bg-soft-pink-50 font-button"
+                    className="border-brand-pink text-brand-pink hover:bg-brand-pink/10 font-button"
                   >
                     Choose File
                   </Button>
