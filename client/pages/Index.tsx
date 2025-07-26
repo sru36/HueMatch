@@ -301,10 +301,20 @@ export default function Index() {
                       
                       <Button
                         onClick={handleFindShade}
-                        className="w-full bg-gradient-to-r from-soft-pink-500 to-soft-pink-600 hover:from-soft-pink-600 hover:to-soft-pink-700 text-white rounded-xl py-6 text-lg font-semibold"
+                        disabled={isLoading}
+                        className="w-full bg-gradient-to-r from-soft-pink-500 to-soft-pink-600 hover:from-soft-pink-600 hover:to-soft-pink-700 text-white rounded-xl py-6 text-lg font-semibold disabled:opacity-70 disabled:cursor-not-allowed"
                       >
-                        Find My Foundation Shade
-                        <ArrowRight className="w-5 h-5 ml-2" />
+                        {isLoading ? (
+                          <>
+                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                            Analyzing...
+                          </>
+                        ) : (
+                          <>
+                            Find My Foundation Shade
+                            <ArrowRight className="w-5 h-5 ml-2" />
+                          </>
+                        )}
                       </Button>
                     </div>
                   )}
