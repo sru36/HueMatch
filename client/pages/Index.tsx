@@ -121,7 +121,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-soft-pink-50 via-white to-warm-beige-50">
+    <div className="min-h-screen bg-gradient-to-br from-soft-pink-50 via-white to-warm-beige-50 transition-all duration-500">
       {/* Header */}
       <header className="w-full px-6 py-8">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
