@@ -63,6 +63,9 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         // HueMatch brand colors
+        'brand-purple': '#1B065E',
+        'brand-pink': '#FF87AB',
+        'brand-light-pink': '#FCC8C2',
         'soft-pink': {
           50: '#fdf2f8',
           100: '#fce7f3',
