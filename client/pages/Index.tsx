@@ -361,7 +361,7 @@ export default function Index() {
                     </div>
 
                     {/* Color Swatches */}
-                    <div className="flex justify-center gap-12">
+                    <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-12">
                       {selectedPixel && (
                         <div className="text-center space-y-3">
                           <div
