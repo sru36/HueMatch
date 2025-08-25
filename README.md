@@ -4,11 +4,6 @@
 
 ![GitHub stars](https://img.shields.io/github/stars/sru36/HueMatch?style=flat-square&color=ff69b4) ![GitHub forks](https://img.shields.io/github/forks/sru36/HueMatch?style=flat-square&color=87ceeb) ![Language](https://img.shields.io/github/languages/top/sru36/HueMatch?style=flat-square&color=dda0dd)
 
-## ✨ Features
-
-- Feature 1: Add your key features here
-- Feature 2: Describe what makes your project special
-- Feature 3: Highlight the main functionality
 
 ## 🚀 Quick Start
 
@@ -94,5 +89,5 @@ This project is currently unlicensed. Please add a license to protect your work.
 ---
 
 <div align="center">
-  Made with ❤️ by the HueMatch team
+  Made with ❤️ by Srushti
 </div>
